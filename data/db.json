@@ -1,0 +1,185 @@
+{
+  "recepty": [
+    {
+      "id": "1",
+      "name": "Bramborový knedlík",
+      "img": "https://www.reznictvi-online.cz/185-thickbox_default/knedlik-bramborovy-500g.jpg",
+      "components": {
+        "withUnit": [
+          [
+            "mouka",
+            "500g"
+          ],
+          [
+            "vejíčka",
+            "22 ks"
+          ],
+          [
+            "rohlík",
+            "10 ks"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl kuchyňská",
+          "pepř ",
+          "zelený pepř",
+          "čili"
+        ]
+      },
+      "workflow": [
+        "Připravte si misku a do ní nasypte mouku a další ingredience. Nezapomeňte vše řádně rozmíchat.Kromě toho. Připravte si misku a do ní nasypte mouku a další ingredience. Nezapomeňte vše řádně rozmíchat.Kromě toho.",
+        "V dalším kroku si rozehřejte troubu. Až teplota ukáže 160 °C tak vložte pekáč."
+      ]
+    },
+    {
+      "id": "2",
+      "name": "Kynutý knedlík",
+      "img": "https://www.tradicnirecepty.cz/www/files/thumbs/files/recipe/201309/6566-54787-1380053580.1196968630.1490033138.jpg",
+      "components": {
+        "withUnit": [
+          [
+            "mouka ",
+            "1 kg"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl"
+        ]
+      },
+      "workflow": [
+        "Vše zamíchat",
+        "A rozkvedlat"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Langoše",
+      "img": "https://1.bp.blogspot.com/-H3x2ha8TdfM/YCC_6Yl3RvI/AAAAAAAGVrw/8_iqa4o4hgoLI6p2yAObJe4o_PEWM82swCPcBGAsYHg/s2048/07-IMG_3041.JPG",
+      "components": {
+        "withUnit": [
+          [
+            "mouka",
+            "100g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl"
+        ]
+      },
+      "workflow": [
+        "Ohřát vodu"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Lívance",
+      "img": "https://1.bp.blogspot.com/-qk1Dk71fqkE/VtCfoTyY4dI/AAAAAAAAFm0/XyulNJBM9B4/s1600/IMG_1976.JPG",
+      "components": {
+        "withUnit": [
+          [
+            "mouka",
+            "200 g"
+          ],
+          [
+            "voda",
+            "300 ml"
+          ],
+          [
+            "kvasnice",
+            "100 g"
+          ],
+          [
+            "mouka",
+            "200 g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "pepř"
+        ]
+      },
+      "workflow": [
+        "Vemte si kastrol a začněte plácat",
+        "Posuňte...."
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Kyselo",
+      "img": "https://tse1.mm.bing.net/th?id=OIP.ilhXbbKT1L862HZC-NllBQHaE8&pid=Api&P=0&h=220",
+      "components": {
+        "withUnit": [
+          [
+            "mouka ",
+            "200g"
+          ],
+          [
+            "vejíčka",
+            "5ks"
+          ],
+          [
+            "voda",
+            " 500 ml"
+          ],
+          [
+            "mrkev",
+            "100 g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "ocet",
+          "timián"
+        ]
+      },
+      "workflow": [
+        "Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme",
+        "Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve. Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve.Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve.Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve."
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Čevabčiči",
+      "img": "https://www.tradicnirecepty.cz/www/files/recipe/201210/2265-2088-1350328882.jpg",
+      "components": {
+        "withUnit": [
+          [
+            "vepřové mleté maso",
+            " 400g"
+          ],
+          [
+            "vajíčka",
+            "10 ks"
+          ],
+          [
+            "rohlíky",
+            "5 ks"
+          ],
+          [
+            "sádlo",
+            "2 lžíce"
+          ],
+          [
+            "máslo",
+            "200 g"
+          ],
+          [
+            "mouka",
+            "300 g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "pepř",
+          "ocet"
+        ]
+      },
+      "workflow": [
+        "Nejprve si zapněte sporák a rozehřejte pánvičku",
+        "Z mletého masa a koření smíchej a udělej šišky",
+        "Příslušné šišky vložte na pánev a začněte smažit.",
+        "Při smažení dohlížejte, aby se šišky nikde nepřipalovaliu a měli celisrvý vzhled."
+      ]
+    }
+  ]
+}

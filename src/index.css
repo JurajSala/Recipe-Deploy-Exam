@@ -1,0 +1,269 @@
+/*   Vstupní nastavení odstazení u všech elementů*/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  font-size: 16px;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  display: flex;
+  background-color: #efefef;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* Nastavení lemenu pro rendrování  aplikace*/
+#root {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Nastavení divu aplikace*/
+.App {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  border: 1px solid #333;
+  box-shadow: 0 0 15px gray;
+}
+
+.h2{font-size: 20px;}
+/*nastavenhlavičky a poatičky aplikace*/
+.Header,.Footer{
+  color:white;
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(90deg,black,gray);
+}
+
+.Header h1 {
+  width: 100%;
+  font-size: 2rem;
+  text-align: center;
+}
+.Header a{
+  text-decoration: none;
+  color: white;
+  background-color: red;
+  padding: 5px;
+  border-radius: 10px;
+}
+.Header svg {
+  font-size: 2rem;
+}
+
+.Footer {
+  padding: 0.75rem;
+  display: grid;
+  place-content: center;
+}
+/*Nastavení navigační komponenty a pro stránky LogIn komponnty*/
+.Nav,.LogIn {
+  width: 100%;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.searchForm {
+  width: 80%;
+  padding: 1rem 1rem 1rem 0.75rem;
+}
+
+.searchForm input[type="text"] {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.searchForm label {
+  position: absolute;
+  left: -99999px;
+}
+
+.Nav ul {
+  color: #fff;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.Nav li {
+  padding: 1rem;
+}
+
+.Nav li:hover,
+.Nav li:focus {
+  padding: 1rem;
+}
+
+.Nav li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.Nav li:hover,
+.Nav li:focus,
+.Nav li:hover a,
+.Nav li:focus a {
+  background-color: #eee;
+  color: #333;
+  border-radius: 5px;
+}
+
+.Nav li:hover a,
+.Nav :focus a {
+  cursor: pointer;
+}
+.LogIn{
+  padding: 3em;
+  flex-grow: 1;
+  width: 80%;
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.LogIn h2{
+  padding: 15px;
+}
+.LogIn form input[type="password"]{
+  font-family: "Open Sans", sans-serif;
+  width: 70%;
+  min-height: 35px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+.LogIn form input[type="submit"]{
+  font-family: "Open Sans", sans-serif;
+  width: 50%;
+  min-height: 35px;
+  font-size: 1rem;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  outline: none;
+}
+
+
+.Home,
+.ReceptPage,
+.NewRecept,
+.EditRecept {
+  width: 80%;
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+  background-color: #fff;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+
+
+.Home li a{
+  text-decoration: none;
+}
+/*Vzhled stránky s recepty ReceptPage modulu-komponenty*/
+.ReceptPage h2{
+  text-align: center;
+  padding: 5px;
+}
+.ReceptPage input[type="text"]{
+  padding: 2px;
+  height: 20px;
+  min-width:50px;
+  border-radius: 5px;
+}
+.ReceptPage h2 input[type="text"]{
+  height: 30px;
+}
+.ReceptPage img{
+  align-items: center;
+  padding: 5px;
+  max-width: 70vw;
+}
+.ReceptPage ul,ol{
+  justify-content:space-between;
+}
+.ReceptPage input[type="submit"]{
+  background-color: red;
+  color: white;
+  cursor: pointer;
+  height: 30px;
+  padding: 2px;
+  border-radius: 5px;
+} 
+.ReceptPage input[type="submit"]:hover{
+  background-color: #eee;
+  color: #333;
+  border-radius: 5px;
+}
+
+.Komponenty{
+  background-color: antiquewhite;
+  align-items: center;
+  padding-left: 15vw;
+}
+.Komponenty:first-child{
+  left:20px;
+}
+.workFlow{
+  padding: 4vmin;
+  background-color: azure;
+}
+.workFlow li{
+  padding-left: 3vmin;
+}
+.workFlow li p::first-letter{
+  color: red;
+  font-size: 25px;
+}
+.button{
+  height: 48px;
+  min-width: 48px;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background-color: red;
+  color: #fff;
+  cursor: pointer;
+}
+.button:hover,
+.button:focus{
+  background-color: #eee;
+  color: #333;
+}
+
+.EditRecept h2 input{
+  font-size: 20px;
+}
