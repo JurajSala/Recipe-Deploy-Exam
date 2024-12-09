@@ -10,8 +10,8 @@ const Components = ({ editComponents, setEditComponents }) => {
     const uloz = () => {
       const prvek =
       {
-        sUnit: sUnit,
-        bezUnit: bezUnit
+        withUnit: sUnit,
+        withoutUnit: bezUnit
       };
       setEditComponents(prvek);
     }
@@ -22,15 +22,18 @@ const Components = ({ editComponents, setEditComponents }) => {
   return (
     <>
       <h3>Uprav nebo zadej příslušné komponenty</h3>
-      <SUnit
-        sUnit={sUnit}
-        setSUnit={setSUnit}
-      /> 
-      
-      <BezUnit
-        bezUnit={bezUnit}
-        setBezUnit={setBezUnit}
-      />
+      <form id="sUnit">
+        <SUnit
+          sUnit={sUnit}
+          setSUnit={setSUnit}
+        /> 
+      </form>
+      <form id="bezUnit">
+        <BezUnit
+          bezUnit={bezUnit}
+          setBezUnit={setBezUnit}
+        />
+      </form>
     </>
   )
 }

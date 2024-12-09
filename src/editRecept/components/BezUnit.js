@@ -29,8 +29,8 @@ const BezUnit = ({ bezUnit, setBezUnit }) => {
 
     return (
         <dl className='Komponenty'>
-            {bezUnit.map((element) =>
-                <dd>
+            {bezUnit.map((element, index) =>
+                <dd key={index}>
                     <input
                         id={bezUnit.indexOf(element)}
                         type="text"

@@ -30,16 +30,16 @@ const odebratRow = () => {
   return (
   <>
     <h3>Uprav nebo zadej pracovní kroky</h3>
-    <ol className='workFlow'>
-    {editWorkFlow.map((polozka) => <li><p><textarea
+    <ol className="workFlow">
+    {editWorkFlow.map((polozka, index) => <li key={index}><textarea
                         id={editWorkFlow.indexOf(polozka)}
-                        type="textarea"
                         value={polozka}
                         onChange={ulozZmenu}
-                    /></p></li>)}
+                    /> </li>)}
     {odebratBoolean() && <button name="minus" onClick={odebratRow}> - </button>}
     {!odebratBoolean() && <button name="plus" onClick={pridatRow}>+</button>}
     </ol>
+
   </>
   )
 }

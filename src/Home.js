@@ -8,7 +8,7 @@ const Home = ({ data }) => {
       { delkaDat&&
         <ul className='Home'>
           {data.map((item) =>
-            <li><Recept item={item} /></li>)}
+            <li key={item.id}><Recept item={item} /></li>)}
         </ul>
       }
       { !delkaDat  &&

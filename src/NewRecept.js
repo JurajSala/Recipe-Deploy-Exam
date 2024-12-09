@@ -27,7 +27,7 @@ const NewRecept = ({recepty, setRecepty}) => {
 
   const ulozNovyRecept = async () => {
     try {
-      const id = recepty.length ? (recepty[recepty.length - 1].id + 1) : 1;
+      const id = recepty.length ? ( parseInt( recepty[recepty.length - 1].id ) + 1).toString() : 1;
       const updateRecept = { id, name: editName.trim(), img: editImg, components: editComponents, workflow: editWorkFlow };
       const response = await api.post(`/recepty/`, updateRecept);
       const allRecepty=[...recepty,response.data];

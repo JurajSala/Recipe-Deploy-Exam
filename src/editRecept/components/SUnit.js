@@ -39,8 +39,8 @@ const SUnit = ({ sUnit, setSUnit }) => {
   }
   return (
     <ul className='Komponenty'>
-      {sUnit.map((element) =>
-        <li>
+      {sUnit.map((element, index) =>
+        <li key={index}>
           <input
             id={sUnit.indexOf(element) + "a"}
             type="text"

@@ -10,6 +10,8 @@ import Nav from "./Nav";
 import Home from "./Home";
 import EditRecept from "./EditRecept";
 import NewRecept from "./NewRecept";
+import Uvod from "./Uvod";
+import User from "./User";
 
 import api from "./api/recepty";
 import useAxiosFetch from './hooks/useAxiosFetch';
@@ -21,7 +23,7 @@ function App() {
   const [editRecept, setEditRecept] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [logIn, setLogIn] = useState(false);
-  const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3050/recepty");
+  const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3005/recepty");
 
   useEffect(() => {
     setRecepty(data);
@@ -34,6 +36,7 @@ function App() {
         <Header
           title="Sbírka receptů Míši Šálové"
           logIn={logIn}
+          setLogIn={setLogIn}
         />
         < Nav
           recepty={recepty}
@@ -62,7 +65,10 @@ function App() {
               setRecepty={setRecepty}
             />} />
           }
-          <Route path="/" element={<Home data={searchResult} />} />
+          <Route path="/recepty" element={<Home data={searchResult} />} />
+          <Route path="/" element={<Uvod />} />
+          <Route path="/user" element={<User />} />
+
         </Routes>
       </Router>
       <Footer />

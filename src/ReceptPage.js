@@ -23,23 +23,25 @@ const ReceptPage = ({ recepty, setRecepty,logIn }) => {
             {receptSelect &&
                 <>
                     <h2>{receptSelect.name}</h2>
-                    <img src={receptSelect.img} alt="picture" style={{width:"400px"}}/>
+                    <img src={receptSelect.img} alt="picture" style={{width:"500px"}}/>
+                    <hr></hr>
                     <h3>K přípravě potřebujete:</h3>
                     <dl className='Komponenty'>
-                        {receptSelect.components.withUnit.map((polozka) => <dd>►  {polozka[1]}{` `}{polozka[0]}</dd>)}
+                        {receptSelect.components.withUnit.map((polozka, index) => <dd key={index} >►  {polozka[1]}{` `}{polozka[0]}</dd>)}
                     </dl>
+                    <hr></hr>
                     <dl className='Komponenty'>
-                        {receptSelect.components.withoutUnit.map((polozka)=><dd>►  {polozka}</dd>)}
+                        {receptSelect.components.withoutUnit.map((polozka,index)=><dd key={index}>►  {polozka}</dd>)}
                     </dl>
                     <h3>Postupujte následovně:</h3>
                     <ol className='workFlow'>
-                        {receptSelect.workflow.map((polozka) => <li><p>{polozka}</p></li>)}
+                        {receptSelect.workflow.map((polozka, index) => <li key={index}><p>{polozka}</p></li>)}
                     </ol>
                     { logIn && 
-                    <>
+                    <div className='inline'>
                         <button className="button" onClick={() => odstranitRecept(id)}>Odstranit recept</button> 
                         <button className="button" onClick={() => navigace(`/EditRecept/${id}`)}>Upravit recept</button>
-                    </>
+                    </div>
                     }
                 </>
             }

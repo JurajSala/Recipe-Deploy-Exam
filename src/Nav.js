@@ -25,6 +25,7 @@ const Nav = ({ recepty, search, setSearch, setSearchResults,logIn }) => {
             </form>
             <ul>
                 <li><Link to="/">Domů</Link></li>
+                <li><Link to="/recepty">Recepty</Link></li>
                 {logIn&&
                 <li className="button"><Link to="/newRecept">Přidat recept</Link></li>}
             </ul>

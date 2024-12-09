@@ -16,7 +16,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   display: flex;
-  background-color: #efefef;
+  background: url(./img/kitchen_background.jpg); 
+    color:rgb(22, 22, 22);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: overlay;
+    min-height: 80vh;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 code {
@@ -41,6 +51,7 @@ code {
   align-items: center;
   border: 1px solid #333;
   box-shadow: 0 0 15px gray;
+  background-color: rgb(121, 115, 115,0.8);
 }
 
 .h2{font-size: 20px;}
@@ -76,6 +87,18 @@ code {
   display: grid;
   place-content: center;
 }
+
+.Uvod h1{
+  text-align: center;
+  padding: 10px;
+}
+
+.Uvod p{
+  color: black;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
 /*Nastavení navigační komponenty a pro stránky LogIn komponnty*/
 .Nav,.LogIn {
   width: 100%;
@@ -105,7 +128,9 @@ code {
   position: absolute;
   left: -99999px;
 }
-
+.Nav{
+  padding: 5px;
+}
 .Nav ul {
   color: #fff;
   list-style-type: none;
@@ -116,6 +141,7 @@ code {
 
 .Nav li {
   padding: 1rem;
+  transition:all 0.5s
 }
 
 .Nav li:hover,
@@ -154,12 +180,12 @@ code {
 .LogIn h2{
   padding: 15px;
 }
-.LogIn form input[type="password"]{
+.LogIn form input[type="password"],input[type="text"]{
   font-family: "Open Sans", sans-serif;
   width: 70%;
   min-height: 35px;
   font-size: 1rem;
-  padding: 0.25rem;
+  padding: 0.5rem;
   border-radius: 0.25rem;
   outline: none;
 }
@@ -167,24 +193,26 @@ code {
 .LogIn form input[type="submit"]{
   font-family: "Open Sans", sans-serif;
   width: 50%;
-  min-height: 35px;
+  min-height: 40px;
   font-size: 1rem;
   padding: 0.25rem;
   border-radius: 0.25rem;
   outline: none;
 }
 
-
+.Uvod,
 .Home,
 .ReceptPage,
 .NewRecept,
 .EditRecept {
-  width: 80%;
+  width:90%;
   flex-grow: 1;
-  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  padding: 3rem;
   overflow-y: auto;
-  background-color: #fff;
-  justify-content: flex-start;
+  background: linear-gradient(white,gray, 45deg);
+  justify-content:space-around;
   align-items: center;
 }
 
@@ -198,21 +226,27 @@ code {
   text-align: center;
   padding: 5px;
 }
-.ReceptPage input[type="text"]{
-  padding: 2px;
-  height: 20px;
-  min-width:50px;
+.ReceptPage > input{
+  padding: 10px;
+  min-height: 20px;
+  width:50%;
   border-radius: 5px;
 }
+
 .ReceptPage h2 input[type="text"]{
   height: 30px;
 }
-.ReceptPage img{
+.ReceptPage > img{
   align-items: center;
   padding: 5px;
   max-width: 70vw;
+  border: 1px black solid;
+  border-radius: 5px;
+  box-shadow: 5px 10px black;
 }
 .ReceptPage ul,ol{
+  display: flex;
+  flex-direction: column;
   justify-content:space-between;
 }
 .ReceptPage input[type="submit"]{
@@ -231,22 +265,36 @@ code {
 
 .Komponenty{
   background-color: antiquewhite;
-  align-items: center;
-  padding-left: 15vw;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-around;
+  align-items: start;
+  padding:20px;
+  width: 70%;
 }
 .Komponenty:first-child{
   left:20px;
 }
 .workFlow{
-  padding: 4vmin;
+  width: 100%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
   background-color: azure;
 }
 .workFlow li{
-  padding-left: 3vmin;
+  padding-left: 5px;
+  width: 100%;
 }
 .workFlow li p::first-letter{
   color: red;
   font-size: 25px;
+}
+.workFlow li textarea{
+  width: 100%;
+  padding: 10px;
 }
 .button{
   height: 48px;
@@ -266,4 +314,12 @@ code {
 
 .EditRecept h2 input{
   font-size: 20px;
+}
+h3{
+  padding: 10px;
+}
+.inline{
+  padding: 5px;
+  display: flex;
+  justify-content:space-between;
 }

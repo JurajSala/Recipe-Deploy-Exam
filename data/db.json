@@ -52,25 +52,6 @@
       ]
     },
     {
-      "id": "3",
-      "name": "Langoše",
-      "img": "https://1.bp.blogspot.com/-H3x2ha8TdfM/YCC_6Yl3RvI/AAAAAAAGVrw/8_iqa4o4hgoLI6p2yAObJe4o_PEWM82swCPcBGAsYHg/s2048/07-IMG_3041.JPG",
-      "components": {
-        "withUnit": [
-          [
-            "mouka",
-            "100g"
-          ]
-        ],
-        "withoutUnit": [
-          "sůl"
-        ]
-      },
-      "workflow": [
-        "Ohřát vodu"
-      ]
-    },
-    {
       "id": "4",
       "name": "Lívance",
       "img": "https://1.bp.blogspot.com/-qk1Dk71fqkE/VtCfoTyY4dI/AAAAAAAAFm0/XyulNJBM9B4/s1600/IMG_1976.JPG",
@@ -95,46 +76,14 @@
         ],
         "withoutUnit": [
           "sůl",
-          "pepř"
+          "pepř",
+          "ocet"
         ]
       },
       "workflow": [
-        "Vemte si kastrol a začněte plácat",
-        "Posuňte...."
-      ]
-    },
-    {
-      "id": "5",
-      "name": "Kyselo",
-      "img": "https://tse1.mm.bing.net/th?id=OIP.ilhXbbKT1L862HZC-NllBQHaE8&pid=Api&P=0&h=220",
-      "components": {
-        "withUnit": [
-          [
-            "mouka ",
-            "200g"
-          ],
-          [
-            "vejíčka",
-            "5ks"
-          ],
-          [
-            "voda",
-            " 500 ml"
-          ],
-          [
-            "mrkev",
-            "100 g"
-          ]
-        ],
-        "withoutUnit": [
-          "sůl",
-          "ocet",
-          "timián"
-        ]
-      },
-      "workflow": [
-        "Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme.Nalijeme do hrnce vodu a vaříme",
-        "Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve. Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve.Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve.Až se voda začne vařit nasypeme na jemno nakrájené kousky mrkve."
+        "Vemte si kastrol a začněte plácat, a dále přidávat a používat aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "Posuňte....",
+        "V dalším kroku se podrbeme na zádech"
       ]
     },
     {
@@ -175,11 +124,65 @@
         ]
       },
       "workflow": [
-        "Nejprve si zapněte sporák a rozehřejte pánvičku",
+        "Nejprve si zapněte sporák a rozehřejte pánvičku a potom to všechno upečem a kdo ví co všechno k tomu uděláme",
         "Z mletého masa a koření smíchej a udělej šišky",
         "Příslušné šišky vložte na pánev a začněte smažit.",
         "Při smažení dohlížejte, aby se šišky nikde nepřipalovaliu a měli celisrvý vzhled."
       ]
+    },
+    {
+      "id": "7",
+      "name": "Pomazánka",
+      "img": "www.farma-sala.cz",
+      "components": {
+        "withUnit": [
+          [
+            "mouka ",
+            "2022g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl"
+        ]
+      },
+      "workflow": [
+        "nejprve ...",
+        "Potom",
+        "A pak"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Plněné knedlíky",
+      "img": "",
+      "components": {
+        "withUnit": [
+          [
+            "Mouka",
+            "1/2 kg"
+          ],
+          [
+            "vejce",
+            "3ks"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "pepř"
+        ]
+      },
+      "workflow": [
+        "Nejpreve ...",
+        "Potom ....",
+        "A nakonec ..."
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": "44bb",
+      "username": "Jurgen",
+      "password": "$2a$10$pGyhQuVNCjluO8wHhDNNWuF0x7Jj/2rDTPQNv6uEabbygpCCd2bwe"
     }
   ]
 }
