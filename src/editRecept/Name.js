@@ -9,10 +9,12 @@ const Name = ({editName, setEditName}) => {
             <form>
                 <label forHtml="name">Zadej nebo uprav jméno receptu</label><br></br>
                 <input
+                    placeholder="Zde zadej název receptu"
                     type="text"
                     name="name"
                     value={editName}
                     onChange={ulozZmenu}
+                    required
                 />
             </form>
         </h2>

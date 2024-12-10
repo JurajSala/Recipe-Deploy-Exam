@@ -22,12 +22,14 @@ const Components = ({ editComponents, setEditComponents }) => {
   return (
     <>
       <h3>Uprav nebo zadej příslušné komponenty</h3>
+      <h4>Měřitelné komponenty</h4>
       <form id="sUnit">
         <SUnit
           sUnit={sUnit}
           setSUnit={setSUnit}
         /> 
       </form>
+      <h4>Neměřitelné komponenty</h4>
       <form id="bezUnit">
         <BezUnit
           bezUnit={bezUnit}

@@ -12,6 +12,7 @@ import EditRecept from "./EditRecept";
 import NewRecept from "./NewRecept";
 import Uvod from "./Uvod";
 import User from "./User";
+import Users from "./Users"
 
 import api from "./api/recepty";
 import useAxiosFetch from './hooks/useAxiosFetch';
@@ -68,6 +69,7 @@ function App() {
           <Route path="/recepty" element={<Home data={searchResult} />} />
           <Route path="/" element={<Uvod />} />
           <Route path="/user" element={<User />} />
+          <Route path="/users" element={<Users />} />
 
         </Routes>
       </Router>

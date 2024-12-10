@@ -55,6 +55,9 @@ code {
 }
 
 .h2{font-size: 20px;}
+h4{
+  color: yellow;
+}
 /*nastavenhlavičky a poatičky aplikace*/
 .Header,.Footer{
   color:white;
@@ -249,7 +252,7 @@ code {
   flex-direction: column;
   justify-content:space-between;
 }
-.ReceptPage input[type="submit"]{
+input[type="submit"]{
   background-color: red;
   color: white;
   cursor: pointer;
@@ -257,7 +260,7 @@ code {
   padding: 2px;
   border-radius: 5px;
 } 
-.ReceptPage input[type="submit"]:hover{
+ input[type="submit"]:hover{
   background-color: #eee;
   color: #333;
   border-radius: 5px;
@@ -281,26 +284,46 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  align-items: start;
+  align-items: center;
   background-color: azure;
 }
+
 .workFlow li{
-  padding-left: 5px;
-  width: 100%;
+  padding-left: 20px;
+  width: 90%;
 }
 .workFlow li p::first-letter{
   color: red;
   font-size: 25px;
+  background-color: white;
 }
 .workFlow li textarea{
   width: 100%;
   padding: 10px;
 }
+
+table{
+  border: solid 1px black;
+  padding: 5px;
+}
+table thead{
+  background-color: #fff;
+}
+table tbody tr td{
+    text-align: center;
+    border: 1px solid black;
+    background-color: azure;
+}
+
 .button{
+  margin: 3px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
   height: 48px;
   min-width: 48px;
   border-radius: 0.25rem;
-  padding: 0.5rem;
+  padding: 5px;
   font-size: 1rem;
   background-color: red;
   color: #fff;
@@ -310,6 +333,7 @@ code {
 .button:focus{
   background-color: #eee;
   color: #333;
+  border: 1px black solid;
 }
 
 .EditRecept h2 input{

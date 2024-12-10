@@ -35,6 +35,7 @@ const odebratRow = () => {
                         id={editWorkFlow.indexOf(polozka)}
                         value={polozka}
                         onChange={ulozZmenu}
+                        placeholder="Zde zadej další krok"
                     /> </li>)}
     {odebratBoolean() && <button name="minus" onClick={odebratRow}> - </button>}
     {!odebratBoolean() && <button name="plus" onClick={pridatRow}>+</button>}

@@ -42,12 +42,14 @@ const SUnit = ({ sUnit, setSUnit }) => {
       {sUnit.map((element, index) =>
         <li key={index}>
           <input
+            placeholder="Název složky"
             id={sUnit.indexOf(element) + "a"}
             type="text"
             value={element[0]}
             onChange={ulozZmenu}
           />
           <input
+          placeholder="Množství"
             id={sUnit.indexOf(element) + "b"}
             type="text"
             value={element[1]}

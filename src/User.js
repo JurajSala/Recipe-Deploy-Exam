@@ -55,7 +55,7 @@ function User() {
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
             />
-            <input type="submit" onClick={() => createUser()} />
+            <input type="submit" onClick={() => createUser()}/>
         </form>
     </div>
     )

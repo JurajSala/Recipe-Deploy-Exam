@@ -48,7 +48,8 @@
       },
       "workflow": [
         "Vše zamíchat",
-        "A rozkvedlat"
+        "A rozkvedlat",
+        "A nakonec to bude snad i k jídlu!!"
       ]
     },
     {
@@ -119,14 +120,12 @@
         ],
         "withoutUnit": [
           "sůl",
-          "pepř",
-          "ocet"
+          "čili"
         ]
       },
       "workflow": [
         "Nejprve si zapněte sporák a rozehřejte pánvičku a potom to všechno upečem a kdo ví co všechno k tomu uděláme",
         "Z mletého masa a koření smíchej a udělej šišky",
-        "Příslušné šišky vložte na pánev a začněte smažit.",
         "Při smažení dohlížejte, aby se šišky nikde nepřipalovaliu a měli celisrvý vzhled."
       ]
     },
@@ -164,6 +163,10 @@
           [
             "vejce",
             "3ks"
+          ],
+          [
+            "Voda",
+            "1.5 Litru"
           ]
         ],
         "withoutUnit": [
@@ -176,13 +179,89 @@
         "Potom ....",
         "A nakonec ..."
       ]
+    },
+    {
+      "id": "9",
+      "name": "Domácí blbouní",
+      "img": "",
+      "components": {
+        "withUnit": [
+          [
+            "mouka",
+            "500 g"
+          ],
+          [
+            "vejíčka",
+            "10ks"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "majoránka"
+        ]
+      },
+      "workflow": [
+        "Nejprve si rozmícháme ...",
+        "Potom v dalším kroku",
+        "Následuje ..."
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Šnicl",
+      "img": "",
+      "components": {
+        "withUnit": [
+          [
+            "vepřová kotleta",
+            "500 g"
+          ],
+          [
+            "strouhánka",
+            "500g"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl",
+          "majoránka"
+        ]
+      },
+      "workflow": [
+        "Nejprve ... ",
+        "A následuje ... ",
+        "A další bude ..."
+      ]
+    },
+    {
+      "id": "11",
+      "name": "Další recept",
+      "img": "",
+      "components": {
+        "withUnit": [
+          [
+            "mouka ",
+            "1 kg"
+          ]
+        ],
+        "withoutUnit": [
+          "sůl"
+        ]
+      },
+      "workflow": [
+        "A tak dále"
+      ]
     }
   ],
   "users": [
     {
-      "id": "44bb",
+      "id": "d585",
+      "username": "Michalka",
+      "password": "$2a$10$hiANwVtQjjenBS8r9oNCXuqme/8Zogp04Ovw7VMEDWdqVemx92Odu"
+    },
+    {
+      "id": "bb72",
       "username": "Jurgen",
-      "password": "$2a$10$pGyhQuVNCjluO8wHhDNNWuF0x7Jj/2rDTPQNv6uEabbygpCCd2bwe"
+      "password": "$2a$10$m2UHFLewcPNn6U/0xUi74O8bMVbLm04qp7tjczCTBmtHucr7qeXZK"
     }
   ]
 }
