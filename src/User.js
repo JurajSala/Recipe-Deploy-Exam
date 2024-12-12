@@ -41,21 +41,24 @@ function User() {
     return (
     <div className="LogIn">
         <h2>Vytvoř uživatele</h2>
-        <form onSubmit={(e) => e.preventDefault()} >
+        <form onSubmit={(e) => e.preventDefault()} id="loginForm" name="loginForm">
             <input
+                name="name"
+                id="name"
                 type="text"
                 placeholder="Zadej uživatelské jméno"
                 value={user}
                 onChange={(e) => setUser(e.target.value)}
             />
             <input
+                name="password"
                 id="logIn"
                 type="password"
                 placeholder="Zadej heslo"
                 value={pass}
                 onChange={(e) => setPass(e.target.value)}
             />
-            <input type="submit" onClick={() => createUser()}/>
+            <input type="submit" onClick={() => createUser()} name="submit" id="submit"/>
         </form>
     </div>
     )

@@ -6,14 +6,16 @@ const Name = ({editName, setEditName}) => {
     }
     return (
         <h2>
-            <form>
-                <label forHtml="name">Zadej nebo uprav jméno receptu</label><br></br>
+            <form autoComplete="on">
+                <label htmlFor="name">Zadej nebo uprav jméno receptu</label><br></br>
                 <input
                     placeholder="Zde zadej název receptu"
                     type="text"
                     name="name"
+                    id="name"
                     value={editName}
                     onChange={ulozZmenu}
+                    autoComplete="on"
                     required
                 />
             </form>

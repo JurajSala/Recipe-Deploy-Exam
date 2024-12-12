@@ -5,6 +5,7 @@ const Obrazek = ({editImg, setEditImg}) => {
     <>
     <h3>Zadej URL obrázku</h3>
     <input
+      name="img"
       placeholder="Zde zadej URL obrazku"
       type="url"
       value={editImg}

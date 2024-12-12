@@ -50,7 +50,7 @@ const ReceptPage = ({ recepty, setRecepty, logIn }) => {
                             <p>
                                 {polozka}
                             </p>
-                            <input type='checkbox' onClick={(e) => marked(e)} />
+                            <input type='checkbox' onClick={(e) => marked(e)} id={index}/>
                             <hr></hr>
                         </li>)}
                     </ol>
