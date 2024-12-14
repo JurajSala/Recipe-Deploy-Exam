@@ -1,6 +1,6 @@
 
 
-const WorkFlow = ({ editWorkFlow, setEditWorkFlow }) => {
+const WorkFlow = ({ editWorkFlow, setEditWorkFlow , isId}) => {
   const ulozZmenu = (e) => {
     const poleNove = editWorkFlow.map((item) => (editWorkFlow.indexOf(item) == e.target.id) ? e.target.value : item);
     setEditWorkFlow(poleNove);
@@ -28,9 +28,11 @@ const WorkFlow = ({ editWorkFlow, setEditWorkFlow }) => {
   const odebratRow = () => {
     setEditWorkFlow(editWorkFlow.filter(item => item !== ""));
   }
+
+  const h3_text = (isId)? "Uprav nebo přidej příslušné kroky postupu:":"Přidej kroky postupu:";
   return (
     <>
-      <h3>Uprav nebo zadej pracovní kroky</h3>
+      <h3>{h3_text}</h3>
       <ol className="workFlow">
         {editWorkFlow.map((polozka, index) => <li key={index}>
           <form autoComplete="on">

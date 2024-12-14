@@ -1,13 +1,14 @@
-import { useEffect } from "react";
 
-const Name = ({editName, setEditName}) => {
+
+const Name = ({editName, setEditName, isId}) => {
     const ulozZmenu = (e) => {
         setEditName( e.target.value);
     }
+    const h3_text = (isId)? "Uprav název receptu:":"Zadej název receptu:";
     return (
         <h2>
             <form autoComplete="on">
-                <label htmlFor="name">Zadej nebo uprav jméno receptu</label><br></br>
+                <label htmlFor="name">{h3_text}</label><br></br>
                 <input
                     placeholder="Zde zadej název receptu"
                     type="text"

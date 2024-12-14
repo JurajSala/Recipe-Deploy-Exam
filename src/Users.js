@@ -1,25 +1,32 @@
 import { useEffect, useState } from "react";
-import api from "./api/recepty";
-import useAxiosFetch from "./hooks/useAxiosFetch";
 import { useNavigate } from "react-router-dom";
+import {getAllUsers, deleteUser } from "./api/users_db"
 
 const Users = function (logIn) {
     const [users, setUsers] = useState([]);
-    const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3005/users");
     const navigace = useNavigate();
 
     useEffect(() => {
-        if(!logIn){
-            navigace("/recepty");
-        }
-        setUsers(data);
-    }, [data])
+        const fetchUsers = async () => {
+              try {
+                const usersData = await getAllUsers();
+                console.log( usersData );
+                setUsers(usersData);
+              } catch (error) {
+                console.error('Chyba při načítání receptů:', error);
+              }
+            };
+            if(!logIn){
+            navigace("/recepty");     
+            }
+            fetchUsers();
+    }, [])
     
 
     const  remove = async function(id) {
         try{
-            await api.delete(`/users/${id}`);
-            const newUsers = users.filter( (item) => item.id !== id );
+            await deleteUser(id);
+            const newUsers = users.filter( (item) => item._id !== id );
             setUsers(newUsers)
         }catch(err){
             console.log(`Erroe:${err.message}`);
@@ -42,9 +49,9 @@ const Users = function (logIn) {
                 <tbody>
                     {
                         users.map((item) =>
-                            <tr >
+                            <tr key={item._id}>
                                 <td>{item.username}</td>
-                                <td onClick={() => remove(item.id)}> 
+                                <td onClick={() => remove(item._id)}> 
                                     <button className="button">Odstranit</button>
                                 </td>
                             </tr>

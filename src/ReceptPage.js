@@ -1,16 +1,16 @@
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import api from "./api/recepty";
+import {deleteRecipe} from "./api/recipes_db"
 
 const ReceptPage = ({ recepty, setRecepty, logIn }) => {
     const { id } = useParams();
-    const receptSelect = recepty.find((item) => (item.id).toString() === id);
+    const receptSelect = recepty.find((item) => (item._id) === id);
     const navigace = useNavigate();
 
     const odstranitRecept = async (id) => {
 
         try {
-            await api.delete(`/recepty/${id}`);
-            const listItems = recepty.filter(item => (item.id).toString() !== id);
+            await deleteRecipe(id);
+            const listItems = recepty.filter(item => (item._id).toString() !== id);
             setRecepty(listItems);
         } catch (err) {
             console.log(`Erroe:${err.message}`);
@@ -34,7 +34,7 @@ const ReceptPage = ({ recepty, setRecepty, logIn }) => {
             {receptSelect &&
                 <>
                     <h2>{receptSelect.name}</h2>
-                    <img src={receptSelect.img} alt="picture" style={{ width: "500px" }} />
+                    { receptSelect.img && <img src={receptSelect.img} alt="foto-recept" style={{ width: "500px" }} />}
                     <hr></hr>
                     <h3>K přípravě potřebujete:</h3>
                     <dl className='Komponenty'>
@@ -46,7 +46,7 @@ const ReceptPage = ({ recepty, setRecepty, logIn }) => {
                     </dl>
                     <h3>Postupujte následovně:</h3>
                     <ol className='workFlow'>
-                        {receptSelect.workflow.map((polozka, index) => <li key={index}>
+                        {receptSelect.workFlow.map((polozka, index) => <li key={index}>
                             <p>
                                 {polozka}
                             </p>

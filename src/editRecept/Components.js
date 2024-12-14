@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import SUnit from "./components/SUnit";
 import BezUnit from "./components/BezUnit";
 
-const Components = ({ editComponents, setEditComponents }) => {
+const Components = ({ editComponents, setEditComponents, isId }) => {
   const [sUnit, setSUnit] = useState(editComponents.withUnit);
   const [bezUnit, setBezUnit] = useState(editComponents.withoutUnit);
 
@@ -16,12 +16,12 @@ const Components = ({ editComponents, setEditComponents }) => {
       setEditComponents(prvek);
     }
     uloz();
-  }, [sUnit, bezUnit, setBezUnit, setSUnit])
+  }, [sUnit,bezUnit, setEditComponents ])
 
-
+  const h3_text = (isId)? "Uprav nebo přidej příslušné komponenty:":"Přidej komponenty:";
   return (
     <>
-      <h3>Uprav nebo zadej příslušné komponenty</h3>
+      <h3>{ h3_text }</h3>
       <h4>Měřitelné komponenty</h4>
       <form id="sUnit">
         <SUnit

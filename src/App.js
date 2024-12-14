@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useParams } from "react-router-dom";
+
 
 import Header from "./Header";
 import Footer from "./Footer";
@@ -14,21 +14,28 @@ import Uvod from "./Uvod";
 import User from "./User";
 import Users from "./Users"
 
-import api from "./api/recepty";
-import useAxiosFetch from './hooks/useAxiosFetch';
+import {getAllRecipes} from './api/recipes_db'
 
 function App() {
   const [recepty, setRecepty] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectRecept, setSelectRecept] = useState("");
-  const [editRecept, setEditRecept] = useState("");
+  // const [selectRecept, setSelectRecept] = useState("");
+  // const [editRecept, setEditRecept] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [logIn, setLogIn] = useState(false);
-  const { data, fetchError, isLoading } = useAxiosFetch("http://localhost:3005/recepty");
 
   useEffect(() => {
-    setRecepty(data);
-  }, [data]);
+    const fetchRecipes = async () => {
+      try {
+        const recipesData = await getAllRecipes();
+        setRecepty(recipesData);
+        console.log(recipesData);
+      } catch (error) {
+        console.error('Chyba při načítání receptů:', error);
+      }
+    };
+    fetchRecipes();
+  }, []);
 
 
   return (

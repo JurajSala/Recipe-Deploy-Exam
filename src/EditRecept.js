@@ -1,7 +1,7 @@
 
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import api from "./api/recepty";
+import {updateRecipe} from "./api/recipes_db";
 
 import Name from "./editRecept/Name";
 import Obrazek from "./editRecept/Obrazek";
@@ -11,32 +11,34 @@ import WorkFlow from "./editRecept/WorkFlow";
 
 const EditRecept = ({ recepty, setRecepty }) => {
   const { id } = useParams();
-  const receptSelect = recepty.find((item) => (item.id).toString() === id);
   const navigace=useNavigate();
-
-  const [editName, setEditName] = useState(receptSelect.name);
-  const [editImg, setEditImg] = useState(receptSelect.img);
-  const [editComponents, setEditComponents] = useState(receptSelect.components);
-  const [editWorkFlow, setEditWorkFlow] = useState(receptSelect.workflow)
+  
+  const [isId, setIsId] = useState(false);
+  const [editName, setEditName] = useState();
+  const [editImg, setEditImg] = useState();
+  const [editComponents, setEditComponents] = useState();
+  const [editWorkFlow, setEditWorkFlow] = useState()
 
   useEffect(() => {
-    if (receptSelect) {
+    if (id) {
+      setIsId(true);
+      const receptSelect = recepty.find((item) => (item._id).toString() === id);
       setEditName(receptSelect.name);
       setEditImg(receptSelect.img);
       setEditComponents(receptSelect.components);
-      setEditWorkFlow(receptSelect.workflow);
+      setEditWorkFlow(receptSelect.workFlow);
     }
-  }, [recepty, setRecepty])
+  }, [recepty])
 
 
   const ulozEditRecept = async () => {
 
     try {
-      const updateRecept = { id, name: editName, img: editImg, components: editComponents, workflow: editWorkFlow };
-      const response = await api.put(`/recepty/${id}`, updateRecept);
-      console.log(recepty.map((recept) => (recept.id).toString() === id ? { ...response.data } : recept));
-      setRecepty(recepty.map((recept) => (recept.id).toString() === id ? { ...response.data } : recept));
-
+      const updateRecept = { name: editName, img: editImg, components: editComponents, workFlow: editWorkFlow };
+      const recipe = await updateRecipe(id, updateRecept);
+      console.log(recepty.map((recept) => (recept._id).toString() === id ? {...recipe, ...updateRecept} : recept));
+      setRecepty(recepty.map((recept) => (recept._id).toString() === id ? {...recipe, ...updateRecept}: recept));
+      navigace("/");
     } catch (err) {
       console.log(`Erroe:${err.message}`);
     }
@@ -49,21 +51,25 @@ const EditRecept = ({ recepty, setRecepty }) => {
           <Name
             editName={editName}
             setEditName={setEditName}
+            isId = {isId}
           />
           <Obrazek
             editImg={editImg}
             setEditImg={setEditImg}
+            isId = {isId}
           />
           <Components
             editComponents={editComponents}
             setEditComponents={setEditComponents}
+            isId = {isId}
           />
           <WorkFlow
             editWorkFlow={editWorkFlow}
             setEditWorkFlow={setEditWorkFlow}
+            isId = {isId}
           />
           <input type="submit" value="Ulož recept" onClick={()=>{
-            ulozEditRecept(); navigace("/");} } />
+            ulozEditRecept();} } />
         </div>
       }
       {!editName &&

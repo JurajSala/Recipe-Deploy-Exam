@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import api from "./api/recepty";
+import {addRecipe} from "./api/recipes_db"
 
 import Name from "./editRecept/Name";
 import Obrazek from "./editRecept/Obrazek";
@@ -9,7 +9,8 @@ import WorkFlow from "./editRecept/WorkFlow";
 
 const NewRecept = ({recepty, setRecepty}) => {
   const navigace=useNavigate();
-
+  
+  const isId = false;
   const [editName, setEditName] = useState("");
   const [editImg, setEditImg] = useState("");
   const [editComponents, setEditComponents] = useState({withUnit:[["",""]], withoutUnit:[""]});
@@ -27,10 +28,12 @@ const NewRecept = ({recepty, setRecepty}) => {
 
   const ulozNovyRecept = async () => {
     try {
-      const id = recepty.length ? ( parseInt( recepty[recepty.length - 1].id ) + 1).toString() : 1;
-      const updateRecept = { id, name: editName.trim(), img: editImg, components: editComponents, workflow: editWorkFlow };
-      const response = await api.post(`/recepty/`, updateRecept);
-      const allRecepty=[...recepty,response.data];
+      //const id = recepty.length ? ( parseInt( recepty[recepty.length - 1]._id ) + 1).toString() : (1).toString();
+      const novyRecept = {  name: editName.trim(), img: editImg, components: editComponents, workFlow: editWorkFlow };
+      console.log(novyRecept)
+      const recipe = await addRecipe( novyRecept);
+      console.log(recipe);
+      const allRecepty=[...recepty, recipe];
       setRecepty(allRecepty);
 
     } catch (err) {
@@ -43,18 +46,22 @@ const NewRecept = ({recepty, setRecepty}) => {
           <Name
             editName={editName}
             setEditName={setEditName}
+            isId = {isId}
           />
           <Obrazek
             editImg={editImg}
             setEditImg={setEditImg}
+            isId = {isId}
           />
           <Components
             editComponents={editComponents}
             setEditComponents={setEditComponents}
+            isId = {isId}
           />
           <WorkFlow
             editWorkFlow={editWorkFlow}
             setEditWorkFlow={setEditWorkFlow}
+            isId = {isId}
           />
            {mohuUlozitRecept(editName) &&          
           <input id="VlozButton" type="submit" value="Vytvoř nový recept" onClick={()=>{

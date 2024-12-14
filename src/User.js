@@ -1,7 +1,8 @@
 import { useState } from "react";
 import bcrypt from "bcryptjs";
-import api from "./api/recepty";
 import { useNavigate } from "react-router-dom";
+
+import { addUser } from "./api/users_db";
 
 
 function User() {
@@ -10,7 +11,7 @@ function User() {
     const [pass, setPass] = useState("");
     const navigace = useNavigate();
 
-    function createUser() {
+    const createUser = function () {
         const saltRounds = 10;
 
         // Hashování hesla
@@ -26,7 +27,7 @@ function User() {
                 password: hash
             };
 
-            api.post('/users', userData)
+            addUser(userData)
                 .then(response => {
                     console.log('Uživatelské data uloženy:', response.data);
                 })
@@ -34,33 +35,56 @@ function User() {
                     console.error('Chyba při ukládání uživatelských dat:', error);
                 });
         });
-        
+
         navigace("/")
     }
 
+    const showPassword = function () {
+        const pass = document.querySelector("#newUser #password");
+        console.log(pass);
+        const typeValue = pass.getAttribute("type");
+        if (typeValue == "password") {
+            pass.setAttribute("type", "text")
+        } else {
+            pass.setAttribute("type", "password")
+        }
+
+    }
+
     return (
-    <div className="LogIn">
-        <h2>Vytvoř uživatele</h2>
-        <form onSubmit={(e) => e.preventDefault()} id="loginForm" name="loginForm">
-            <input
-                name="name"
-                id="name"
-                type="text"
-                placeholder="Zadej uživatelské jméno"
-                value={user}
-                onChange={(e) => setUser(e.target.value)}
-            />
-            <input
-                name="password"
-                id="logIn"
-                type="password"
-                placeholder="Zadej heslo"
-                value={pass}
-                onChange={(e) => setPass(e.target.value)}
-            />
-            <input type="submit" onClick={() => createUser()} name="submit" id="submit"/>
-        </form>
-    </div>
+        <div className="LogIn">
+            <h2>Vytvoř uživatele</h2>
+            <form onSubmit={(e) => e.preventDefault()} id="newUser" name="newUser" autoComplete="on">
+                <input
+                    name="name"
+                    id="logName"
+                    type="text"
+                    placeholder="Zadej uživatelské jméno"
+                    value={user}
+                    onChange={(e) => setUser(e.target.value)}
+                />
+                <input
+                    name="password"
+                    id="password"
+                    type="password"
+                    placeholder="Zadej heslo"
+                    value={pass}
+                    onChange={(e) => setPass(e.target.value)}
+                />
+                <div>
+                <input
+                    name="showPass"
+                    type="checkbox"
+                    onChange={showPassword}
+                    id="showPass"
+                />
+                <label htmlFor="showPass">Kontrola hesla</label>
+                </div>
+                
+
+                <input type="submit" onClick={() => createUser()} name="submit" id="submit" />
+            </form>
+        </div>
     )
 }
 export default User;
