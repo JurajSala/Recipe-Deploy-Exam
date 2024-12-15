@@ -4,19 +4,19 @@ const SUnit = ({ sUnit, setSUnit }) => {
 
   const ulozZmenu = (e) => {
     console.log((e.target.id).substring(1));
-    if ((e.target.id).substring(1) == "a") {
+    if ((e.target.id).substring(1) === "a") {
       
-      const poleNove = sUnit.map((item) => ((sUnit.indexOf(item)).toString() == (e.target.id).substring(0, 1)) ? [e.target.value, item[1]] : item);
+      const poleNove = sUnit.map((item) => ((sUnit.indexOf(item)).toString() === (e.target.id).substring(0, 1)) ? [e.target.value, item[1]] : item);
       setSUnit(poleNove);
     } else {
-      const poleNove = sUnit.map((item) => ((sUnit.indexOf(item)).toString() == (e.target.id).substring(0, 1)) ? [item[0], e.target.value] : item);
+      const poleNove = sUnit.map((item) => ((sUnit.indexOf(item)).toString() === (e.target.id).substring(0, 1)) ? [item[0], e.target.value] : item);
       setSUnit(poleNove);
     }
   }
 
 
   const odebratBoolean = () => {
-    const polePlne = sUnit.filter(item => ((item[0]!="")||(item[1]!="")));
+    const polePlne = sUnit.filter(item => ((item[0]!=="")||(item[1]!=="")));
     console.log(polePlne);
     const countFullRow=polePlne.length;
     if (countFullRow < sUnit.length) {
@@ -35,7 +35,7 @@ const SUnit = ({ sUnit, setSUnit }) => {
   }
 
   const odebratRow = () => {
-    setSUnit(sUnit.filter(item => ((item[0]!="")||(item[1]!=""))));
+    setSUnit(sUnit.filter(item => ((item[0]!=="")||(item[1]!==""))));
   }
   return (
     <ul className='Komponenty'>

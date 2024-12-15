@@ -42,9 +42,10 @@ function App() {
     <div className="App">
       <Router>
         <Header
-          title="Sbírka receptů Míši Šálové"
+          title="Receptů Michalky Šálové"
           logIn={logIn}
           setLogIn={setLogIn}
+          recepty={recepty}
         />
         < Nav
           recepty={recepty}

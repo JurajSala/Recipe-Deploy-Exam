@@ -43,7 +43,7 @@ function User() {
         const pass = document.querySelector("#newUser #password");
         console.log(pass);
         const typeValue = pass.getAttribute("type");
-        if (typeValue == "password") {
+        if (typeValue === "password") {
             pass.setAttribute("type", "text")
         } else {
             pass.setAttribute("type", "password")

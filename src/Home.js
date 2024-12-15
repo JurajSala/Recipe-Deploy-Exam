@@ -13,7 +13,7 @@ const Home = ({ data }) => {
         </ul>
       }
       { !delkaDat  &&
-       <p>-------------------- Nalezených receptů. Bohužel!!------------------------</p>
+       <h3>-------------------- Nalezených receptů. Bohužel!!------------------------</h3>
         }
     </>
   )

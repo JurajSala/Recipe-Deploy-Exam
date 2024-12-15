@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
-import useAxiosFetch from './hooks/useAxiosFetch';
 import bcrypt from "bcryptjs";
-import {getAllUsers} from "./api/users_db";
+import { getAllUsers } from "./api/users_db";
 
 const LogIn = ({ setLogIn }) => {
     const [users, setUsers] = useState([]);
@@ -12,32 +11,39 @@ const LogIn = ({ setLogIn }) => {
     const navigace = useNavigate();
 
     useEffect(() => {
-         const fetchUsers = async () => {
-              try {
+        const fetchUsers = async () => {
+            try {
                 const usersData = await getAllUsers();
                 setUsers(usersData);
-              } catch (error) {
+            } catch (error) {
                 console.error('Chyba při načítání receptů:', error);
-              }
-            };
-            fetchUsers();
+            }
+        };
+        fetchUsers();
     }, [users]);
 
     const overLogIn = async () => {
-        const user = users.find((item) => item.username === insertUser);
-        if (user) {
-            try {
-                const isMatch = await bcrypt.compare(insertPass, user["password"]);
-                if (isMatch) {
-                    setLogIn(true);
-                    navigace("/");
-                } else {
-                    let pocet = pocetLog;
-                    setPocetLog(pocet + 1);
+        const sameUser = users.filter((item) => item.username === insertUser);
+        console.log(sameUser)
+        if (sameUser.length) {
+            const tryUser = async function(user){
+                try {
+                    const isMatch = await bcrypt.compare(insertPass, user["password"]);
+                    if (isMatch) {
+                        setLogIn(true);
+                        navigace("/");
+                    } else {
+                        let pocet = pocetLog;
+                        setPocetLog(pocet + 1);
+                    }
+                } catch (err) {
+                    console.log(err);
                 }
-            } catch (err) {
-                console.log(err);
             }
+            sameUser.forEach(user => {
+                tryUser(user);
+            }
+            )
         }
         let pocet = pocetLog;
         setPocetLog(pocet + 1);
@@ -46,7 +52,7 @@ const LogIn = ({ setLogIn }) => {
         const pass = document.querySelector("#loginForm #password");
         console.log(pass);
         const typeValue = pass.getAttribute("type");
-        if (typeValue == "password") {
+        if (typeValue === "password") {
             pass.setAttribute("type", "text")
         } else {
             pass.setAttribute("type", "password")
@@ -56,10 +62,10 @@ const LogIn = ({ setLogIn }) => {
 
     return ((pocetLog < 3) ?
         <div className='LogIn'>
-            {(pocetLog == 0) ? <h2>Pro možnost upravovat a publikovat recepty je třeba zadat uživatelské jméno a heslo:</h2> : <h2>Zkuste to znovu a lépe</h2>}
+            {(pocetLog === 0) ? <h2>Pro možnost upravovat a publikovat recepty je třeba zadat uživatelské jméno a heslo:</h2> : <h2>Zkuste to znovu a lépe</h2>}
             <form onSubmit={(e) => e.preventDefault()} id="loginForm" autoComplete="on">
                 <input
-                    id="username"
+                    id="userName"
                     type="text"
                     placeholder="Zadej uživatelské jméno"
                     value={insertUser}
@@ -73,15 +79,15 @@ const LogIn = ({ setLogIn }) => {
                     onChange={(e) => setInsertPass(e.target.value)}
                 />
                 <div>
-                <input
-                    name="showPass"
-                    type="checkbox"
-                    onChange={showPassword}
-                    id="showPass"
-                />
-                <label htmlFor="showPass">Zobrazit heslo</label>
+                    <input
+                        name="showPass"
+                        type="checkbox"
+                        onChange={showPassword}
+                        id="showPass"
+                    />
+                    <label htmlFor="showPass">Zobrazit heslo</label>
                 </div>
-                <input type="submit" onClick={() => overLogIn()} id="submit"/>
+                <input type="submit" onClick={() => overLogIn()} id="submit" />
             </form>
         </div> : <div className="LogIn"><h2>To už stačilo. Zkus to zase za chvíli.</h2> <Link to="/">Domů</Link></div>
     )

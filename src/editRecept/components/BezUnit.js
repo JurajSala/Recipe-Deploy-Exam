@@ -2,7 +2,7 @@
 const BezUnit = ({ bezUnit, setBezUnit }) => {
  
     const ulozZmenu = (e) => {
-        const poleNove = bezUnit.map((item) => (bezUnit.indexOf(item) == e.target.id) ? e.target.value : item);
+        const poleNove = bezUnit.map((item) => (bezUnit.indexOf(item) === parseInt(e.target.id) ) ? e.target.value : item);
         setBezUnit(poleNove);
     }
     const odebratBoolean = () => {

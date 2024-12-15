@@ -28,7 +28,7 @@ const EditRecept = ({ recepty, setRecepty }) => {
       setEditComponents(receptSelect.components);
       setEditWorkFlow(receptSelect.workFlow);
     }
-  }, [recepty])
+  }, [recepty,id])
 
 
   const ulozEditRecept = async () => {

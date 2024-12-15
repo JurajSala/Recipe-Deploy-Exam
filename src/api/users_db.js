@@ -40,3 +40,12 @@ export const deleteUser = async (userId) => {
       throw error;
     }
   };
+
+export const getUserId = async (userId)=> {
+   try {
+     const user = await usersDb.get(userId);
+     return user;
+   }catch(error){
+    console.error('Chyba při hledání uživatele:', error);
+   }
+}

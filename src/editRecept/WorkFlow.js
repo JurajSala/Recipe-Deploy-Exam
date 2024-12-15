@@ -2,7 +2,7 @@
 
 const WorkFlow = ({ editWorkFlow, setEditWorkFlow , isId}) => {
   const ulozZmenu = (e) => {
-    const poleNove = editWorkFlow.map((item) => (editWorkFlow.indexOf(item) == e.target.id) ? e.target.value : item);
+    const poleNove = editWorkFlow.map((item) => (editWorkFlow.indexOf(item) === parseInt(e.target.id)) ? e.target.value : item);
     setEditWorkFlow(poleNove);
   }
 
