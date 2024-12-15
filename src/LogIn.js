@@ -3,7 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import bcrypt from "bcryptjs";
 import { getAllUsers } from "./api/users_db";
 
-const LogIn = ({ setLogIn }) => {
+const LogIn = ({ setLogIn , setCurrentUser}) => {
     const [users, setUsers] = useState([]);
     const [insertUser, setInsertUser] = useState("");
     const [insertPass, setInsertPass] = useState("");
@@ -26,11 +26,13 @@ const LogIn = ({ setLogIn }) => {
         const sameUser = users.filter((item) => item.username === insertUser);
         console.log(sameUser)
         if (sameUser.length) {
-            const tryUser = async function(user){
+            const tryUser = async function(user , order){
                 try {
                     const isMatch = await bcrypt.compare(insertPass, user["password"]);
                     if (isMatch) {
                         setLogIn(true);
+                        setCurrentUser({ userName: user["username"], order: order, id:user["_id"] });
+                        console.log({userName: user["username"], order: order, id:user["_id"] })
                         navigace("/");
                     } else {
                         let pocet = pocetLog;
@@ -40,8 +42,8 @@ const LogIn = ({ setLogIn }) => {
                     console.log(err);
                 }
             }
-            sameUser.forEach(user => {
-                tryUser(user);
+            sameUser.forEach( (user, index) => {
+                tryUser(user, index+1);
             }
             )
         }
@@ -62,7 +64,7 @@ const LogIn = ({ setLogIn }) => {
 
     return ((pocetLog < 3) ?
         <div className='LogIn'>
-            {(pocetLog === 0) ? <h2>Pro možnost upravovat a publikovat recepty je třeba zadat uživatelské jméno a heslo:</h2> : <h2>Zkuste to znovu a lépe</h2>}
+            {(pocetLog === 0) ? <h2 style={{color:"red", textAlign:"center"}}>Pro možnost upravovat a publikovat recepty je třeba se přihlásit</h2> : <h2>Zkuste to znovu a lépe</h2>}
             <form onSubmit={(e) => e.preventDefault()} id="loginForm" autoComplete="on">
                 <input
                     id="userName"

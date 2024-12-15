@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { getAllUsers, deleteUser, getUserId } from "./api/users_db"
 
-const Users = function (logIn) {
+const Users = function ({ logIn, currentUser }) {
     const [users, setUsers] = useState([]);
     const navigace = useNavigate();
 
@@ -33,7 +33,7 @@ const Users = function (logIn) {
             getUserId(userId)
                 .then(
                     (data) => {
-                        if (data.username !=="Michalka") {
+                        if (data.username !== "Michalka") {
                             try {
                                 deleteUser(userId);
                                 const newUsers = users.filter((item) => item._id !== userId);
@@ -45,40 +45,52 @@ const Users = function (logIn) {
                         }
                     }
                 )
-        }catch(err){
+        } catch (err) {
             console.log(`Erroe:${err.message}`);
-        }  
+        }
     }
     return (
-            <div className="Home">
-                <h2>Přehled uživatelů</h2>
-                <hr></hr>
-                {(users.length) ? <table>
-                    <thead>
-                        <tr>
-                            <th>Uživatelské jméno</th>
-                            <th>##</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            users.map((item) =>
-                                <tr key={item._id}>
-                                    <td>{item.username}</td>
-                                    <td onClick={() => removeUser(item._id)}>
-                                        <button className="button">Odstranit</button>
+        <div className="Home">
+            <h2>Přehled uživatelů</h2>
+            <hr></hr>
+            {(users.length) ? <table>
+                <thead>
+                    <tr>
+                        <th>Uživatelské jméno</th>
+                        <th>##</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {
+                        users.map((item) =>
+                            <tr key={item._id}>
+                                {(currentUser.id === item._id) ?
+                                    <td style={{ backgroundColor: "yellow" }}>
+                                        {item.username}
                                     </td>
-                                </tr>
-                            )
-                        }
-                    </tbody>
+                                    : 
+                                    <td>
+                                        {item.username}
+                                    </td>
+                                }
+                                {(currentUser.id === item._id) ?
+                                <td>Přihlášený</td>
+                                : 
+                                <td onClick={() => removeUser(item._id)}>
+                                    <button className="button">Odstranit</button>
+                                </td>
+                                }
+                            </tr>
+                        )
+                    }
+                </tbody>
 
-                </table>
-                    : <p>Nenašli jsme žádného uživatele!!</p>
-                }
-            </div>
-        )
+            </table>
+                : <p>Nenašli jsme žádného uživatele!!</p>
+            }
+        </div>
+    )
 
-    }
+}
 
-    export default Users;
+export default Users;

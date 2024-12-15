@@ -14,7 +14,7 @@ import Uvod from "./Uvod";
 import User from "./User";
 import Users from "./Users"
 
-import {getAllRecipes} from './api/recipes_db'
+import { getAllRecipes } from './api/recipes_db'
 
 function App() {
   const [recepty, setRecepty] = useState([]);
@@ -23,6 +23,7 @@ function App() {
   // const [editRecept, setEditRecept] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   const [logIn, setLogIn] = useState(false);
+  const [currentUser, setCurrentUser] = useState({ userName: "", order: 0, id:"" });
 
   useEffect(() => {
     const fetchRecipes = async () => {
@@ -45,7 +46,9 @@ function App() {
           title="Receptů Michalky Šálové"
           logIn={logIn}
           setLogIn={setLogIn}
-          recepty={recepty}
+          recepty={ recepty }
+          currentUser = { currentUser }
+          setCurrentUser={setCurrentUser}
         />
         < Nav
           recepty={recepty}
@@ -55,13 +58,17 @@ function App() {
           logIn={logIn} />
 
         <Routes>
-          <Route path="/logIn" element={<LogIn setLogIn={setLogIn} />} />
-          <Route path="/recept/:id" 
+          <Route path="/logIn"
+            element={<LogIn
+              setLogIn={setLogIn}
+              setCurrentUser={setCurrentUser}
+            />} />
+          <Route path="/recept/:id"
             element={<ReceptPage
-            recepty={recepty}
-            setRecepty={setRecepty}
-            logIn={logIn}
-          />} />
+              recepty={recepty}
+              setRecepty={setRecepty}
+              logIn={logIn}
+            />} />
           {logIn &&
             <Route path="/editRecept/:id" element={<EditRecept
               recepty={recepty}
@@ -69,7 +76,7 @@ function App() {
             />} />
           }
           {logIn &&
-            <Route path="/newRecept" element={<NewRecept 
+            <Route path="/newRecept" element={<NewRecept
               recepty={recepty}
               setRecepty={setRecepty}
             />} />
@@ -77,7 +84,7 @@ function App() {
           <Route path="/recepty" element={<Home data={searchResult} />} />
           <Route path="/" element={<Uvod />} />
           <Route path="/user" element={<User />} />
-          <Route path="/users" element={<Users />} />
+          <Route path="/users" element={<Users logIn = {logIn} currentUser = {currentUser}/>} />
 
         </Routes>
       </Router>
