@@ -15,6 +15,7 @@ const Header = ({ title, logIn, setLogIn, recepty, currentUser, setCurrentUser }
       <h1>
         {title}
       </h1>
+      <Link to="/user" className="button">Nový uživatel</Link>
       {(logIn) ?
         <div className="col">
           <div className="inline">
@@ -22,7 +23,7 @@ const Header = ({ title, logIn, setLogIn, recepty, currentUser, setCurrentUser }
               setLogIn(false);
               setCurrentUser({ userName: "", order: 0, id:"" })
             }} className="button">X</Link>
-            <Link to="/user" className="button">Nový uživatel</Link>
+            
           </div>
           <span style={{color:"yellow", margin:"10px", border:"solid 1px black", padding:"5px"}}> {currentUser.userName} {" -> "} {currentUser.order}</span>
         </div>
