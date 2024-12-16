@@ -11,9 +11,9 @@ const Users = function ({ logIn, currentUser }) {
             try {
                 const usersData = await getAllUsers();
                 console.log(usersData);
-                setUsers(usersData);
+                setUsers( usersData );
             } catch (error) {
-                console.error('Chyba při načítání receptů:', error);
+                console.error( 'Chyba při načítání receptů:', error );
             }
         };
         if (!logIn) {
